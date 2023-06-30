@@ -1,0 +1,83 @@
+html, body {
+  width: 100%;
+    height: 100%;
+    margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+    display: flex;
+}
+
+div[class*=wrapper] {
+  height: 100%;
+  width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+div[class*=loader] {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+/* 
+=======================
+    Square Preloader
+=======================
+*/
+.first-wrapper {
+  background-color: rgba(36,38,45,1.0);
+}
+
+.square {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255,255,255,0);
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px solid rgba(102,204,255,1.0);
+  left: 73px;
+  top: 73px;
+  position: absolute;
+}
+
+.square-loader {
+    transform: rotate(45deg);
+}
+
+.first_square {
+    animation: first_square_animate 2s infinite ease-in-out;
+}
+.second_square {
+  animation: second_square 5s forwards, 
+             second_square_animate 5s infinite ease-in-out;
+} 
+.third_square {
+  animation: third_square 3s forwards, 
+             third_square_animate 3s infinite ease-in-out;
+} 
+    
+@keyframes second_square {
+  100% { width: 100px; height:100px; left: 48px; top: 48px; }
+}
+
+@keyframes third_square {
+  100% { width: 150px; height:150px; left: 23px; top: 23px;}
+}
+
+@keyframes first_square_animate {
+  0%   { transform: perspective(100px) rotateX(0deg) rotateY(0deg);} 
+  50%  { transform: perspective(100px) rotateX(-180deg) rotateY(0deg); }
+  100% { transform: perspective(100px) rotateX(-180deg) rotateY(-180deg); }
+}
+
+@keyframes second_square_animate {
+  0%   { transform: perspective(200px) rotateX(0deg) rotateY(0deg); } 
+  50%  { transform: perspective(200px) rotateX(180deg) rotateY(0deg); } 
+  100% { transform: perspective(200px) rotateX(180deg) rotateY(180deg); }
+}
+
+@keyframes third_square_animate {
+  0%   { transform: perspective(300px) rotateX(0deg) rotateY(0deg); } 
+  50%  { transform: perspective(300px) rotateX(-180deg) rotateY(0deg); } 
+  100% { transform: perspective(300px) rotateX(-180deg) rotateY(-180deg); }
+}
